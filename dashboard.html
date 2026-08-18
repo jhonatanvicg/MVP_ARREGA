@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrega Industrial — Panel</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Ocultar/mostrar menú">☰</button>
+        <span class="sidebar-brand">Arrega Industrial</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="home">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" data-view="cmc">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-label">CMC Eléctrica</span>
+        </button>
+        <button class="nav-item" data-view="config">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Configuraciones</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="nav-item" id="logoutBtn">
+          <span class="nav-icon">⏻</span>
+          <span class="nav-label">Cerrar sesión</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-title" id="topbarTitle">Home</div>
+        <div class="topbar-user">
+          <div class="topbar-avatar">JV</div>
+          <span id="topbarUsername">jhonatan.victorio</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="view active" data-view="home">
+          <h1 class="home-title">Arrega <span>Industrial</span></h1>
+        </section>
+
+        <section class="view" data-view="cmc">
+          <div class="cmc-page">
+
+            <div class="cmc-page-header">
+              <div>
+                <h2 class="cmc-page-title">Configuración de Cálculo</h2>
+                <p class="cmc-page-subtitle">Ingrese los parámetros operativos para la conversión y análisis.</p>
+              </div>
+              <div class="cmc-status-badge" id="cmcStatusBadge">
+                <span class="cmc-status-dot"></span>
+                <span id="cmcStatusText">SIN VERIFICAR</span>
+              </div>
+            </div>
+
+            <div class="cmc-grid">
+              <!-- Columna izquierda: formulario -->
+              <div class="cmc-col-form">
+
+                <!-- 1. Magnitud física -->
+                <div class="cmc-card">
+                  <div class="cmc-card-header">
+                    <h3>1. Magnitud Física</h3>
+                  </div>
+
+                  <div class="cmc-search" id="cmcMagnitudeSearch">
+                    <div class="cmc-search-input-wrap">
+                      <span class="cmc-search-icon">🔍</span>
+                      <input type="text" id="cmcMagnitudeInput" class="cmc-search-input" placeholder="Buscar magnitud o parámetro..." autocomplete="off">
+                    </div>
+                    <ul class="cmc-search-results" id="cmcMagnitudeResults" hidden></ul>
+                  </div>
+
+                  <div class="cmc-selected-magnitude is-empty" id="cmcSelectedMagnitude">
+                    <span class="cmc-selected-magnitude-icon" id="cmcSelectedIcon">🔍</span>
+                    <div>
+                      <div class="cmc-selected-magnitude-label" id="cmcSelectedLabel">Ninguna magnitud seleccionada</div>
+                      <div class="cmc-selected-magnitude-sub" id="cmcSelectedSub">Busca y selecciona un parámetro para continuar</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Rango operativo -->
+                <div class="cmc-card">
+                  <div class="cmc-card-header">
+                    <h3>2. Rango Operativo</h3>
+                    <span class="cmc-tag">REFERENCIA</span>
+                  </div>
+                  <div class="cmc-range-grid" id="cmcRangeGrid"></div>
+                </div>
+
+                <!-- 3. Valor de lectura -->
+                <div class="cmc-card">
+                  <div class="cmc-card-header">
+                    <h3>3. Valor de Lectura</h3>
+                  </div>
+
+                  <form id="cmcForm" novalidate>
+                    <div class="cmc-reading-row">
+                      <div class="cmc-reading-input-wrap">
+                        <input type="number" id="cmcLectura" class="cmc-reading-input" step="any" placeholder="0.00" required>
+                        <span class="cmc-reading-unit" id="cmcUnitBadge">mV</span>
+                      </div>
+                      <button type="submit" class="cmc-calc-btn" id="cmcSubmit">
+                        Calcular <span>→</span>
+                      </button>
+                    </div>
+
+                    <div class="alert-error" id="cmcError"></div>
+
+                    <div class="cmc-precision">
+                      <div class="cmc-precision-row">
+                        <span>ESTADO DEL CÁLCULO</span>
+                        <span id="cmcPrecisionValue">PENDIENTE</span>
+                      </div>
+                      <div class="cmc-precision-bar"><div class="cmc-precision-fill" id="cmcPrecisionFill"></div></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Columna derecha: resultado -->
+              <div class="cmc-col-result">
+                <div class="cmc-result-card">
+                  <div class="cmc-result-label"><span>✔</span> RESULTADO CALCULADO</div>
+
+                  <p class="cmc-result-empty" id="cmcResultEmpty">Ingresa una lectura y presiona Calcular para ver el resultado.</p>
+
+                  <div class="cmc-result-body" id="cmcResultBody" hidden>
+                    <div class="cmc-result-value">
+                      <span id="cmcResultNumber">0</span>
+                      <span class="cmc-result-unit" id="cmcResultUnitLabel">µV</span>
+                    </div>
+                    <div class="cmc-result-meta-grid">
+                      <div>
+                        <div class="cmc-result-meta-label">RANGO APLICADO</div>
+                        <div class="cmc-result-meta-value" id="cmcResultRango">—</div>
+                      </div>
+                      <div>
+                        <div class="cmc-result-meta-label">LECTURA</div>
+                        <div class="cmc-result-meta-value" id="cmcResultLectura">—</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cmc-card cmc-meta-card">
+                  <h4>METADATOS TÉCNICOS</h4>
+                  <ul class="cmc-meta-list">
+                    <li><span>Fórmula</span><span id="cmcMetaFormula">—</span></li>
+                    <li><span>Equipo</span><span id="cmcMetaEquipo">—</span></li>
+                    <li><span>Método</span><span id="cmcMetaMetodo">—</span></li>
+                    <li><span>Timestamp</span><span id="cmcMetaTimestamp">—</span></li>
+                  </ul>
+                  <button type="button" class="cmc-export-btn" id="cmcExportBtn" disabled>⬇ Exportar Reporte</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="config">
+          <div class="panel">
+            <h2 class="panel-title">Configuraciones</h2>
+            <p class="panel-subtitle">Conexión con el backend de cálculo de incertidumbre.</p>
+
+            <div class="alert-success" id="configSaved">Guardado correctamente.</div>
+
+            <form id="configForm" class="cmc-form" novalidate>
+              <div class="field">
+                <label for="apiBaseUrl">URL base de la API</label>
+                <input type="text" id="apiBaseUrl" placeholder="http://localhost:3000">
+              </div>
+              <button type="submit" class="btn-primary">Guardar</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

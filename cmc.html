@@ -1,0 +1,259 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Arrega Industrial - Nuevo Cálculo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#004d68",
+                        "on-secondary-fixed-variant": "#464555",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-highest": "#e2e3e1",
+                        "surface-bright": "#f9f9f7",
+                        "primary-fixed-dim": "#ffba49",
+                        "on-surface": "#1a1c1b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5e5d6d",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e8e6",
+                        "tertiary-fixed": "#c3e8ff",
+                        "surface-container": "#eeeeec",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f7",
+                        "outline": "#847561",
+                        "tertiary-container": "#42c2fa",
+                        "surface-variant": "#e2e3e1",
+                        "secondary-fixed": "#e3e0f4",
+                        "primary": "#815600",
+                        "surface": "#f9f9f7",
+                        "primary-container": "#f2a71b",
+                        "on-primary-container": "#624000",
+                        "surface-dim": "#dadad8",
+                        "surface-container-low": "#f4f4f2",
+                        "secondary-fixed-dim": "#c7c4d8",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-secondary-fixed": "#1a1a28",
+                        "on-surface-variant": "#514534",
+                        "primary-fixed": "#ffddb1",
+                        "on-background": "#1a1c1b",
+                        "on-tertiary-fixed": "#001e2c",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#d6c4ad",
+                        "on-primary-fixed-variant": "#624000",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#78d1ff",
+                        "on-primary-fixed": "#291800",
+                        "tertiary": "#006689",
+                        "surface-tint": "#815600",
+                        "secondary-container": "#e0ddf1",
+                        "on-secondary-container": "#626172",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffba49",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004d68",
+                        "tech-cyan": "#1CADE4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-tech": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-tech": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .input-glow:focus {
+            outline: none;
+            border-color: #1CADE4;
+            box-shadow: 0 0 0 3px rgba(28, 173, 228, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden font-body-md">
+<!-- SideNavBar -->
+
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col w-full h-full relative">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop max-w-full bg-surface dark:bg-on-surface border-b border-outline-variant dark:border-outline docked full-width top-0 z-10 py-md min-h-[64px]">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim lg:hidden">Arrega Industrial</h2>
+<nav class="hidden md:flex gap-lg">
+<a class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 opacity-80 transition-opacity" href="#">Cálculos</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors pb-1" href="#">Magnitudes</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors pb-1" href="#">Historial</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors pb-1" href="#">Reportes</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-grow overflow-y-auto p-margin-desktop bg-surface-container-low">
+<div class="max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-lg">
+<!-- Page Header -->
+<div class="xl:col-span-12 mb-sm flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg lg:text-headline-lg text-on-surface mb-xs">Configuración de Cálculo</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ingrese los parámetros operativos para la conversión y análisis.</p>
+</div>
+<div class="hidden md:flex items-center gap-sm bg-surface-bright border border-surface-dim px-md py-xs rounded-lg">
+<span class="w-2 h-2 rounded-full bg-tech-cyan shadow-[0_0_8px_rgba(28,173,228,0.6)]"></span>
+<span class="font-label-tech text-label-tech text-secondary">SISTEMA ONLINE</span>
+</div>
+</div>
+<!-- Left Column: Form (Bento Grid Style) -->
+<div class="xl:col-span-8 flex flex-col gap-lg">
+<!-- Magnitud Selector Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-dim shadow-sm p-lg">
+<div class="flex justify-between items-center mb-md border-b border-surface-container pb-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">1. Magnitud Física</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="search">search</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<!-- Selected Item -->
+<button class="flex flex-col items-center justify-center p-md rounded-lg border-2 border-tech-cyan bg-[#f0f9fd] text-on-surface transition-all"><span class="material-symbols-outlined text-tech-cyan mb-sm text-[32px]" style="font-variation-settings: 'FILL' 1;">bolt</span><span class="font-headline-sm text-body-md font-semibold">Voltaje DC</span></button>
+<!-- Inactive Items -->
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-surface-dim hover:border-outline bg-surface text-on-surface-variant transition-all hover:-translate-y-1">
+<span class="material-symbols-outlined mb-sm text-[32px]" data-icon="thermostat">thermostat</span>
+<span class="font-body-md text-body-md">Temperatura</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-surface-dim hover:border-outline bg-surface text-on-surface-variant transition-all hover:-translate-y-1">
+<span class="material-symbols-outlined mb-sm text-[32px]" data-icon="waves">waves</span>
+<span class="font-body-md text-body-md">Caudal</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-surface-dim hover:border-outline bg-surface text-on-surface-variant transition-all hover:-translate-y-1">
+<span class="material-symbols-outlined mb-sm text-[32px]" data-icon="bolt">bolt</span>
+<span class="font-body-md text-body-md">Energía</span>
+</button>
+</div>
+</div>
+<!-- Range Selector Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-dim shadow-sm p-lg">
+<div class="flex justify-between items-center mb-md border-b border-surface-container pb-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">2. Rango Operativo</h3>
+<span class="font-label-tech text-label-tech text-tech-cyan bg-[#e6f6fc] px-2 py-1 rounded">ACTIVO</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md"><label class="cursor-pointer"><input checked="" class="peer sr-only" name="range" type="radio"><div class="p-md rounded-lg border border-surface-dim peer-checked:border-primary peer-checked:bg-[#fff9f0] hover:bg-surface-bright transition-colors"><div class="font-headline-sm text-body-md font-semibold text-on-surface mb-xs">10 - 100</div><div class="font-label-tech text-label-tech text-secondary">mV</div></div></label><label class="cursor-pointer"><input class="peer sr-only" name="range" type="radio"><div class="p-md rounded-lg border border-surface-dim peer-checked:border-primary peer-checked:bg-[#fff9f0] hover:bg-surface-bright transition-colors"><div class="font-headline-sm text-body-md font-semibold text-on-surface mb-xs">0.1 - 1</div><div class="font-label-tech text-label-tech text-secondary">V</div></div></label><label class="cursor-pointer"><input class="peer sr-only" name="range" type="radio"><div class="p-md rounded-lg border border-surface-dim peer-checked:border-primary peer-checked:bg-[#fff9f0] hover:bg-surface-bright transition-colors"><div class="font-headline-sm text-body-md font-semibold text-on-surface mb-xs">1 - 10</div><div class="font-label-tech text-label-tech text-secondary">V</div></div></label><label class="cursor-pointer"><input class="peer sr-only" name="range" type="radio"><div class="p-md rounded-lg border border-surface-dim peer-checked:border-primary peer-checked:bg-[#fff9f0] hover:bg-surface-bright transition-colors"><div class="font-headline-sm text-body-md font-semibold text-on-surface mb-xs">10 - 100</div><div class="font-label-tech text-label-tech text-secondary">V</div></div></label><label class="cursor-pointer"><input class="peer sr-only" name="range" type="radio"><div class="p-md rounded-lg border border-surface-dim peer-checked:border-primary peer-checked:bg-[#fff9f0] hover:bg-surface-bright transition-colors"><div class="font-headline-sm text-body-md font-semibold text-on-surface mb-xs">100 - 1000</div><div class="font-label-tech text-label-tech text-secondary">V</div></div></label></div>
+</div>
+<!-- Input Value Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-dim shadow-sm p-lg relative overflow-hidden">
+<div class="absolute right-0 top-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-surface-container to-transparent opacity-50 pointer-events-none"></div>
+<div class="flex justify-between items-center mb-md border-b border-surface-container pb-sm relative z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">3. Valor de Lectura</h3>
+</div>
+<div class="flex items-center gap-md relative z-10">
+<div class="relative flex-grow">
+<input class="input-glow w-full bg-surface-bright border border-surface-dim rounded-lg p-md font-headline-lg text-headline-lg text-on-surface text-right pr-20 transition-all focus:border-tech-cyan" placeholder="0.00" type="number" value="45.2">
+<span class="absolute right-md top-1/2 -translate-y-1/2 font-label-tech text-label-tech text-secondary bg-surface px-sm py-xs border border-surface-dim rounded">mV</span>
+</div>
+<button class="bg-primary-container text-on-primary-container hover:bg-[#d99414] font-headline-sm text-headline-sm font-bold py-md px-lg rounded-lg shadow-[0_4px_12px_rgba(242,167,27,0.2)] hover:-translate-y-1 transition-all flex items-center gap-sm h-full border border-[#d99414]">
+                                Calcular
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="mt-md">
+<div class="flex justify-between font-label-caps text-label-caps text-secondary mb-xs">
+<span class="">PRECISIÓN DEL SENSOR</span>
+<span class="text-tech-cyan">± 0.1%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tech-cyan w-3/4 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Result & Data -->
+<div class="xl:col-span-4 flex flex-col gap-lg">
+<!-- Result Card (Glass/Premium feel) -->
+<div class="bg-[#1a1a28] rounded-xl border border-[#2f3130] shadow-[0_8px_24px_rgba(27,27,41,0.2)] p-lg relative overflow-hidden group">
+<!-- Abstract technical background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-tech-cyan blur-[60px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-tech-cyan text-[18px]">check_circle</span>
+<h3 class="font-label-caps text-label-caps text-on-secondary-fixed-variant text-white/70 tracking-widest">RESULTADO CALCULADO</h3>
+</div>
+<div class="mt-lg mb-xl">
+<div class="flex items-baseline gap-xs">
+<span class="font-headline-lg text-[56px] leading-[64px] font-bold text-white tracking-tighter">4.52</span>
+<span class="font-label-tech text-label-tech text-tech-cyan">x 10⁶</span>
+</div>
+<div class="font-headline-md text-headline-md text-white/80 mt-xs border-b border-white/10 pb-sm inline-block">Voltios (V)</div>
+</div>
+<div class="grid grid-cols-2 gap-sm mt-md pt-md border-t border-white/10">
+<div>
+<div class="font-label-caps text-[10px] text-white/50 mb-1">VALOR BRUTO</div>
+<div class="font-label-tech text-label-tech text-white/90">4,520,000</div>
+</div>
+<div>
+<div class="font-label-caps text-[10px] text-white/50 mb-1">MARGEN ERROR</div>
+<div class="font-label-tech text-label-tech text-[#F2A71B]">± 4,520</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Details Sub-card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-dim shadow-sm p-md">
+<h4 class="font-label-caps text-label-caps text-secondary mb-md border-b border-surface-container pb-sm">METADATOS TÉCNICOS</h4>
+<ul class="flex flex-col gap-sm"><li class="flex justify-between items-center py-xs border-b border-surface-container-high border-dashed"><span class="font-body-md text-body-md text-on-surface-variant">Incertidumbre</span><span class="font-label-tech text-label-tech text-on-surface bg-surface px-2 py-1 rounded">9.2 µV/V + 0.3 µV</span></li><li class="flex justify-between items-center py-xs border-b border-surface-container-high border-dashed"><span class="font-body-md text-body-md text-on-surface-variant">Equipo</span><span class="font-label-tech text-label-tech text-on-surface text-right">Agilent 3458A Opt. 002</span></li><li class="flex justify-between items-center py-xs border-b border-surface-container-high border-dashed"><span class="font-body-md text-body-md text-on-surface-variant">Método</span><span class="font-label-tech text-label-tech text-on-surface">Expanded Uncertainty (k=2)</span></li><li class="flex justify-between items-center py-xs"><span class="font-body-md text-body-md text-on-surface-variant">Timestamp</span><span class="font-label-tech text-label-tech text-secondary text-[10px]">2024-10-24 14:32:01</span></li></ul>
+<button class="mt-md w-full border border-surface-dim text-on-surface-variant hover:bg-surface-bright font-headline-sm text-body-md py-sm rounded-lg transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                            Exportar Reporte
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+</body></html>
